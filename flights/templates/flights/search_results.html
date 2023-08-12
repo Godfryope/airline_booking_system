@@ -1,0 +1,23 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Search Results</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'styles.css' %}">
+</head>
+<body>
+    <div class="container">
+        <h1>Search Results</h1>
+        {% if flights %}
+            <ul>
+                {% for flight in flights %}
+                    <li>{{ flight.flight_number }} - {{ flight.origin }} to {{ flight.destination }}</li>
+                {% endfor %}
+            </ul>
+        {% else %}
+            <p>No matching flights found.</p>
+        {% endif %}
+    </div>
+</body>
+</html>

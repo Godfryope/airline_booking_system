@@ -1,0 +1,19 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Flight Search</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'styles.css' %}">
+</head>
+<body>
+    <div class="container">
+        <h1>Flight Search</h1>
+        <form method="post" action="{% url 'search_flights' %}">
+            {% csrf_token %}
+            <input type="text" name="search_query" placeholder="Enter flight number, origin, or destination">
+            <button type="submit">Search</button>
+        </form>
+    </div>
+</body>
+</html>
