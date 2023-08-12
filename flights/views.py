@@ -15,4 +15,4 @@ def search_flights(request):
 
         return render(request, 'flights/search_results.html', {'flights': matching_flights})
     
-    return render(request, 'flights/search_flight.html')
+    return render(request, 'flights/flights.html')
