@@ -15,15 +15,11 @@
             <fieldset class="flight">
                 <h2 class="fs-title">Flight Results</h2>
                 {% comment %} <h1>Search Results</h1> {% endcomment %}
-                {% if flights %}
-                    <ul>
-                        {% for flight in flights %}
-                            <li >{{ flight.flight_number }} - {{ flight.origin }} to {{ flight.destination }}</li>
-                        {% endfor %}
-                    </ul>
-                {% else %}
-                    <p>No matching flights found.</p>
-                {% endif %}
+                {% for passenger in passengers %}
+                    <li>{{ passenger.first_name }} {{ passenger.last_name }} - Seat: {{ passenger.seat_number }} (Flight: {{ passenger.flight.flight_name }})</li>
+                {% empty %}
+                    <li>No matching passengers found.</li>
+                {% endfor %}
             </fieldset>
         </div>
         <!-- link to designify.me code snippets -->

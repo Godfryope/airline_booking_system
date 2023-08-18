@@ -1,18 +1,11 @@
 from django.shortcuts import render
-from .models import Flight
+from .models import Flight, Passenger
 
-def search_flights(request):
+def search_seat(request):
     if request.method == 'POST':
         search_query = request.POST.get('search_query', '').lower()
-        flights = Flight.objects.all()
+        passengers = Passenger.objects.filter(seat_number__icontains=search_query)
 
-        matching_flights = []
-        for flight in flights:
-            if search_query in flight.flight_number.lower() or \
-               search_query in flight.origin.lower() or \
-               search_query in flight.destination.lower():
-                matching_flights.append(flight)
-
-        return render(request, 'flights/search_results.html', {'flights': matching_flights})
+        return render(request, 'flights/seat_search_results.html', {'passengers': passengers})
     
-    return render(request, 'flights/flights.html')
+    return render(request, 'flights/seat_search.html')

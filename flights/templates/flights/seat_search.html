@@ -5,18 +5,18 @@
 {% block content %}
 <div class="row">
     <div class="col-md-8 col-md-offset-3">
-        <form method="post" action="{% url 'search_flights' %}" id="msform">
+        <form method="post" action="{% url 'search_seat' %}" id="msform">
             {% csrf_token %}
             <!-- progressbar -->
             <ul id="progressbar">
-                <li class="active">Flight Search</li>
-                <li>Flight Results</li>
+                <li class="active">Passenger Search</li>
+                <li>Passenger Results</li>
             </ul>
             <!-- fieldsets -->
             <fieldset>
-                <h2 class="fs-title">Flight Search</h2>
-                <h3 class="fs-subtitle">Enter flight number, origin, or destination</h3>
-                <input type="text" name="search_query" placeholder="Enter flight number, origin, or destination"/>
+                <h2 class="fs-title">Passenger Search</h2>
+                <h3 class="fs-subtitle">Enter seat number</h3>
+                <input type="text" name="search_query" placeholder="Enter seat number"/>
                 {% comment %} <input type="text" name="lname" placeholder="Last Name"/>
                 <input type="text" name="phone" placeholder="Phone"/> {% endcomment %}
                 <input type="submit" name="next" class="next action-button" value="Submit"/>
